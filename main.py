@@ -5,8 +5,8 @@ import os
 import PySimpleGUI as sg
 from PIL import Image
 file_types = [("JPEG (*.jpg)", "*.jpg"),
-              ("All files (*.*)", "*.*"),
-              ("PNG (*.png)", "(*.png)")]
+              ("PNG (*.png)", "*.png"),
+              ("All files (*.*)", "*.*")]
 
 
 def main():
