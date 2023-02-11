@@ -29,10 +29,9 @@ def main():
             if os.path.exists(filename):
                 try:
                     image = Image.open(values["-FILE-"])
-                except ValueError:
+                except IOError:
                     continue
-
-                image.thumbnail((800, 700))
+                image.thumbnail((800, 800))
                 bio = io.BytesIO()
                 image.save(bio, format="PNG")
                 window["-IMAGE-"].update(data=bio.getvalue())
