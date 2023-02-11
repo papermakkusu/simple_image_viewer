@@ -27,8 +27,12 @@ def main():
         if event == "Load Image":
             filename = values["-FILE-"]
             if os.path.exists(filename):
-                image = Image.open(values["-FILE-"])
-                image.thumbnail((400, 400))
+                try:
+                    image = Image.open(values["-FILE-"])
+                except ValueError:
+                    continue
+
+                image.thumbnail((800, 700))
                 bio = io.BytesIO()
                 image.save(bio, format="PNG")
                 window["-IMAGE-"].update(data=bio.getvalue())
